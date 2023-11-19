@@ -52,7 +52,8 @@ function SignUp() {
       
       await addDoc(userReference, {
         userName: registerData.userName,
-        id: data.user.uid
+        id: data.user.uid,
+        email: registerData.email
       });
         alert('Succesfully Registered');
         navigate('/');

@@ -7,11 +7,10 @@ import Login from './pages/Login/Login';
 import SignUp from './Pages/Signup/Signup';
 import PasswordReset from './Pages/PasswordReset/PasswordReset';
 import CreatePost from './Pages/CreatePost/CreatePost'
-import HomePage from './pages/Home/HomePage';
 import Settings from './Pages/Settings/Settings';
 import Navbar from './Components/Navbar/Navbar'
-
 import { auth } from '../firebase.config';
+import HomePage from './Pages/Home/HomePage';
 
 
 
@@ -36,7 +35,7 @@ function App() {
           navigate("/signup");
         }
     
-        if (!user || location,pathname === "/resetpassword") {
+        if (!user || location.pathname === "/resetpassword") {
           navigate("/resetpassword")
         }
 

@@ -1,4 +1,6 @@
+import React from 'react'
 import CreatePostForm from './CreatePostForm'
+import Navbar from '../../Components/Navbar/Navbar'
 import './CreatePost.css'
 
 function CreatePost() {

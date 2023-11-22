@@ -8,110 +8,43 @@ import 'primereact/resources/primereact.css';
 import './SettingsForm.css'; // Import your CSS file
 
 function SettingsForm() {
-  const [settingsData, setSettingsData] = useState({
-    name: "",           // Add other settings fields as needed
-    bio: "",
-    posts: "",
-    achievements: "",
-    repos: "",
-  });
-
-  const handleSettings = (event) => {
-    event.preventDefault();
-
-    // You can perform logic here to update the settings, for example:
-    console.log("Settings Updated:", settingsData);
-    // Add code to update settings in the backend or any other necessary action
+  console.log("SettingsForm rendered");
+  const handleSettings = () => {
+    // Implement your Settings logic here
   };
-
   return (
-    <div>
+    <div class = "read-Only">
     <h1>Account Settings</h1>
-    <form onSubmit={handleSettings}>
-    <label className="name-label">
-  Name:
-  <div className="name-box">
-    <InputText
-      id="name"
-      type="text"
-      placeholder="Enter your name"
-      value={settingsData.name}
-      onChange={(event) => setSettingsData({ ...settingsData, name: event.target.value })}
-      className="w-full"
-    />
-  </div>
-  </label>
-
-
-
+    <form>
+    <label htmlFor="name">Name:</label>
         <div class = "flex-container">
         <div class="flex-rectangle"></div>
-        <div class = "flex-col" > 
-            <label class = "flex-activity">Recent Activities</label>
-            <InputText
-            id="activity"
-            type="text"
-            placeholder="Recent activity here"
-            value={settingsData.activity}
-            onChange={(event) => setSettingsData({ ...settingsData, activity: event.target.value })}
-            class="read-only"
-          />
+        <div class = "flex-col"> 
+            <label class = "flex-bio">Recent Activities</label>
+            <textarea class="read-only">RECENT ACTIVITIES HERE</textarea>
         </div>
         </div>
 
 
         <div class = "flex-container">
-            <div class = "flex-panel margins">
-                <label >Bio:</label>
-                <InputText
-            id="bio"
-            type="text"
-            placeholder="bio here"
-            value={settingsData.bio}
-            onChange={(event) => setSettingsData({ ...settingsData, bio: event.target.value })}
-            class="read-only"
-          />
-            </div>
 
             <div class = "flex-panel margins">
-                <label>Posts</label>
-                <InputText
-            id="posts"
-            type="text"
-            placeholder="posts here"
-            value={settingsData.bio}
-            onChange={(event) => setSettingsData({ ...settingsData, post: event.target.value })}
-            class="read-only"
-          />
+                <label htmlFor="location">Bio:</label>
+                <textarea class="read-only">BIO HERE</textarea>
             </div>
-
-
+            <div class = "flex-panel margins">
+                <label htmlFor="website">Posts</label>
+                <textarea class="read-only">POSTS HERE</textarea>
+            </div>
             <div class = "flex-panel margins">
                 <label htmlFor="aboutMe">Achievements</label>
-                <InputText
-            id="achievements"
-            type="text"
-            placeholder="achievements here"
-            value={settingsData.bio}
-            onChange={(event) => setSettingsData({ ...settingsData, achievements: event.target.value })}
-            class="read-only"
-          />
+                <textarea class="read-only">Achievements here</textarea>
             </div>
         </div>
  
         <div>
-            <label>Repos</label>
-            <InputText
-            id="repos"
-            type="text"
-            placeholder="repos here"
-            value={settingsData.bio}
-            onChange={(event) => setSettingsData({ ...settingsData, repos: event.target.value })}
-            class="large-read-only"
-          />
-        </div>
-        <div>
-                <button class = "button">Save</button>
+                <label htmlFor="aboutMe">Repos</label>
+                <textarea class="read-only">Repos here</textarea>
         </div>
     </form>
     </div>

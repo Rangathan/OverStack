@@ -1,42 +1,43 @@
 /* LoginForm.css */
 
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Change 'height' to 'min-height' */
+  background-color: #f0f0f0;
+}
 
 .surface-card {
-  max-width: 500px !important;
-  max-height: 600px; /* Set to 'auto' to allow content to dictate height */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  max-width: 400px;
+  height: auto; /* Set to 'auto' to allow content to dictate height */
   display: flex; /* Add this line to center content vertically */
   flex-direction: column; /* Add this line to center content vertically */
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
-
-  
 }
-
-.imgs {
-  margin-top: 10px;
-}
-
-div {
-  padding-bottom: 10px !important;
-}
-
-
 
 .flex{
-  padding: 50px;
-  
+  padding: 20px;
+  height: min-content;
 }
 .text-900 {
   font-weight: 900;
-
+  padding-bottom: 10px;
 }
 
-
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
 
 .w-full {
-  width: 100% !important;
-  margin-top: 20px !important;
-  margin-bottom: 20px !important;
+  width: 100%;
 }
 
 /* Add more styles as needed */
@@ -53,11 +54,11 @@ div {
 
 /* Style the link for "Create today!" and "Forgot your password?" */
 a {
-  color: #007bff !important;
+  color: #007bff;
   text-decoration: none;
 }
 
-Link:hover {
+a:hover {
   text-decoration: underline;
 }
 

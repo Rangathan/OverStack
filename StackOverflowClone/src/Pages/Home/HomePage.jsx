@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import WelcomeCard from '../../Components/WelcomeCard/WelcomeCard';
 import { auth, db } from '../../../firebase.config';
@@ -6,12 +6,14 @@ import { doc, getDoc } from 'firebase/firestore';
 
 
 import './style.css';
+import { AuthContext } from '../../App';
 
 const HomePage = () => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState('');
   const [questionsAsked, setQuestionsAsked] = useState(0);
-
+  const userData = useContext(AuthContext);
+  console.log(userData);
 
   const user = auth.currentUser;
   useEffect(() => {

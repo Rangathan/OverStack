@@ -2,8 +2,8 @@
 import './App.css';
 
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Login from './pages/Login/Login';
+import { useEffect, useState, createContext } from "react";
+import Login from "./Pages/Login/Login";
 import SignUp from './Pages/Signup/Signup';
 import PasswordReset from './Pages/PasswordReset/PasswordReset';
 import CreatePost from './Pages/CreatePost/CreatePost'
@@ -11,21 +11,27 @@ import Settings from './Pages/Settings/Settings';
 import Navbar from './Components/Navbar/Navbar'
 import { auth } from '../firebase.config';
 import HomePage from './Pages/Home/HomePage';
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
+import 'primeflex/primeflex.css';
+import QuestionsPage from './Pages/Questions/QuestionsPage';
 
 
-
+export const AuthContext = createContext();
 
 function App() {
 
   const navigate= useNavigate();
   const location = useLocation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userData, setUserData] = useState({});
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         console.log(user, 'user');
         setIsAuthenticated(true);
+        setUserData(user);
         if (location.pathname === "/signup" || location.pathname === "/") {
           navigate("/home");
         }
@@ -53,6 +59,7 @@ function App() {
   return (
     <div>
       {isAuthenticated && <Navbar data={isAuthenticated} />}
+      <AuthContext.Provider value={userData}>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
@@ -60,7 +67,9 @@ function App() {
         <Route path='/home' element={<HomePage />} />
         <Route path='/createpost' element={<CreatePost />} />
         <Route path='/settings' element={<Settings />} />
+        <Route path='/questions' element={<QuestionsPage />} />
       </Routes>
+      </AuthContext.Provider>
     </div>
 
   );
